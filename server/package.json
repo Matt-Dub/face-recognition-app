@@ -1,0 +1,16 @@
+{
+  "name": "face-recognition-server",
+  "version": "1.0.0",
+  "description": "The back-end of the Face Recognition App",
+  "license": "ISC",
+  "author": "Matt",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
