@@ -6,13 +6,17 @@ import Logo from '../components/Logo';
 import ImageLinkForm from '../components/ImageLinkForm'
 import Rank from '../components/Rank'
 import FaceRecognition from '../components/FaceRecognition'
+import SignIn from '../components/SignIn/SignIn'
+import Register from '../components/SignIn/Register'
 // import Clarifai from 'clarifai';
 
 function App() {
+
   const [ input, setInput ] = useState('');
   const [ imageUrl, setImageUrl ] = useState('');
   const [ box, setBox ] = useState({});
-  const [ imageSize, setImageSize ] = useState([]);
+  const [ route, setRoute ] = useState('signin');
+  const [ isSignedIn, setSignedIn ] = useState(false);
 
   const PAT = '79e9789fe0d44d42910ad0b723aed2f1';
   const USER_ID = 'clarifai';
@@ -51,7 +55,7 @@ function App() {
             body: raw
         };
 
-      fetch("https://cors-anywhere.herokuapp.com/https://api.clarifai.com/v2/models/" + MODEL_ID + "/versions/" + MODEL_VERSION_ID + "/outputs", requestOptions)
+      const resp = await fetch("https://cors-anywhere.herokuapp.com/https://api.clarifai.com/v2/models/" + MODEL_ID + "/versions/" + MODEL_VERSION_ID + "/outputs", requestOptions)
       .then(response => response.json())
       .then(result => {
 
@@ -59,42 +63,21 @@ function App() {
           let imageElement = document.getElementById('display-img');
           let width = Number(imageElement.width);
           let height = Number(imageElement.height);
-          setImageSize([width, height]);
-          
+          let boxes = [];
 
           regions.forEach(region => {
               // Accessing and rounding the bounding box values
               const boundingBox = region.region_info.bounding_box;
-              const box = [Number(boundingBox.top_row.toFixed(3)*height),
-                          Number(boundingBox.left_col.toFixed(3)*width),
-                          Number(boundingBox.bottom_row.toFixed(3)*height),
-                          Number(boundingBox.right_col.toFixed(3)*width)];
-              setBox(box);
-
-              // region.data.concepts.forEach(concept => {
-              //     // Accessing and rounding the concept value
-              //     const name = concept.name;
-              //     const value = concept.value.toFixed(4);
-
-              //     //console.log(`${name}: ${value} BBox: ${topRow}, ${leftCol}, ${bottomRow}, ${rightCol}`);
-              //     console.log(box);
-              // });
-
-                // if(onNewImageUrl !== '') {
-                  // let { x, y, w, h } = onNewCanvas;
-                  // const currentImg = document.getElementById('display-img');
-                  // console.log(currentImg);
-                  // let imgW = currentImg.width;
-                  // let imgH = currentImg.height;
-                  // const c = document.getElementById("face-canvas");
-                  // let ctx = c.getContext("2d");
-                  // ctx.strokeStyle = "green";
-                  // ctx.strokeRect(x, y, w, h);
-              // }
+              boxes.push([Number(boundingBox.top_row.toFixed(2)*height),
+                          Number(boundingBox.left_col.toFixed(2)*width),
+                          Number(height - (boundingBox.bottom_row.toFixed(2)*height)),
+                          Number(width - (boundingBox.right_col.toFixed(2)*width))]);
+              setBox(boxes);
           });
+          
 
       })
-      .catch(error => console.log('error', error));
+      .catch(error => console.log('THERE\'S AN ERROR!', error));
   }
 
   const onInputChange = (event  => {
@@ -106,20 +89,32 @@ function App() {
     requestDetection(input);
   }
 
-  const calculateFaceLocation = () => {
-    return 
+  const onRouteChage = (route) => {
+    if(route !== 'home') {
+      setSignedIn(false);
+    } else {
+      setSignedIn(true);
+    }
+
+    setRoute(route);
   }
 
   return (
     <div className="app">
-      <Navigation />
-      <Logo />
-      <Rank />
-      <ImageLinkForm
-        onInputChange={onInputChange}
-        onButtonSubmit={onButtonSubmit}/>
-      <ParticlesBg type="cobweb" bg={false}/>
-      <FaceRecognition onNewImageUrl={imageUrl} onNewCanvas={box} onImageSize={imageSize}/>
+      <Navigation isSignedIn={isSignedIn} onRouteChange={onRouteChage}/>
+      {route !== 'home'
+        ? ( route === 'signin'
+          ? <SignIn onRouteChange={onRouteChage} />
+          : <Register onRouteChange={onRouteChage} />)
+        : <div>
+            <Logo />
+            <Rank />
+            <ImageLinkForm
+              onInputChange={onInputChange}
+              onButtonSubmit={onButtonSubmit}/>
+            <FaceRecognition onNewImageUrl={imageUrl} onNewCanvas={box}/>
+          </div>}
+          <ParticlesBg type="cobweb" bg={false}/>
     </div>
 
   )

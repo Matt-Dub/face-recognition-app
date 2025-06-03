@@ -1,15 +1,16 @@
 import React from 'react';
 
-function FaceRecognition ({ onNewImageUrl, onNewCanvas}) {
+function FaceRecognition ({ onNewImageUrl, onNewCanvas }) {
 
-    console.log('face-recognition', onNewCanvas);
-
-
-    
     return (
         <div className="center ma image-wrapper">
             {onNewImageUrl === '' ? <div></div> : <img id='display-img' className='output-image relative mt2' src={onNewImageUrl} alt="image"/>}
-            <div className="face-box" style={{top: onNewCanvas[0], left: onNewCanvas[1], bottom: onNewCanvas[2], right: onNewCanvas[3]}}></div>
+            {Object.keys(onNewCanvas).length === 0 ? <div></div> : onNewCanvas.map((face) => {
+                return <div
+                    className="face-box"
+                    style={{top: face[0], left: face[1], bottom: face[2], right: face[3]}}>
+                </div>})}
+            <div></div>
         </div>
     )
 }
