@@ -2,3 +2,25 @@
   display: flex;
   justify-content: flex-end;
 }
+
+.output-image {
+  max-width: 500px;
+  width: 500px;
+  height: 'auto;
+}
+
+.image-wrapper {
+  max-width: 500px;
+  width: 500px;
+  height: auto;
+  position: relative;
+}
+
+.face-box {
+  position: absolute;
+  box-shadow: 0 0 0 3px #FF6EA3;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  cursor: pointer;
+}
