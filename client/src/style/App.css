@@ -1,0 +1,132 @@
+.nav-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  gap: 2rem;
+  padding: 1rem 3rem;
+}
+
+.nav-link {
+  color: #42A067;
+  text-decoration: underline;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+.nav-link:hover {
+  color: #7DBD96
+}
+
+.output-image {
+  max-width: 500px;
+  width: 500px;
+  height: auto;
+}
+
+.image-wrapper {
+  max-width: 500px;
+  width: 500px;
+  height: auto;
+  position: relative;
+}
+
+.face-box {
+  position: absolute;
+  box-shadow: 0 0 0 3px #FF6EA3;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.intro-msg{
+  color: #fcc35a;
+  font-style: italic;
+  padding-bottom: 2rem;
+  margin: 0
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+}
+
+.front-app-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1 1 0;
+
+}
+
+.front-app {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.submit-container {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  align-content: center;
+  gap: 2rem;
+}
+
+.magic-input {
+  width: 700px;
+  background-color:#050505;
+  /* background-image:
+  radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+  radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
+  radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px),
+  radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px);
+  background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
+  background-position: 0 0, 40px 60px, 130px 270px, 70px 100px; */
+  padding: 3rem 2rem;
+  border: 1px solid #202020;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.9);
+}
+
+.submit-btn {
+  cursor: pointer;
+  border: 1px solid #000;
+  width: 30%;
+  background-color: #fcc35a;
+  border-radius: 50px;
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.5);
+}
+
+.submit-btn:hover {
+  background-color: #FDD787;
+  box-shadow: 0 6px 16px 1px rgba(0, 0, 0, 0.8);
+}
+
+.logo-container {
+  margin-bottom: 3rem;
+}
+
+.tilt-logo {
+  height: '120px';
+  width: '120px';
+  background-color: '#fcc35a;
+}
+
+#nav-bar-wrapper {
+  margin: 1rem 0 0 0;
+}
+
+.rank-wrapper {
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

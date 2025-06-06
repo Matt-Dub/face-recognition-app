@@ -1,0 +1,137 @@
+html {
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: 'Courier-New', 'Courier', sans-serif;
+  background: linear-gradient(160deg, #202020, #121212);
+}
+
+#root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.app {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.brain-logo__wrapper {
+  display: flex;
+  place-content: center;
+  height: 100%;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.form {
+  width: 700px;
+  background-color:black;
+  background-image:
+  radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+  radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
+  radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 40px),
+  radial-gradient(rgba(255,255,255,.4), rgba(255,255,255,.1) 2px, transparent 30px);
+  background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
+  background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+}
+
+.form-btn {
+  cursor: pointer;
+  border: 1px solid #000;
+  width: 100%;
+  background-color: #fcc35a;
+  border-radius: 50px;
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+  margin-top: 0.5rem;
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.5);
+}
+
+.form-btn:hover {
+  background-color: #FDD787;
+  box-shadow: 0 6px 16px 1px rgba(0, 0, 0, 0.8);
+}
+
+.form-field-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  justify-content: center;
+  align-items: start;
+  width: 100%;
+  padding: 0.5rem 0;
+  margin-top: 0.5rem;
+  box-sizing: border-box;
+}
+
+.form-field {
+  width: 100%;
+  background-color: #202020;
+  border: 1px solid #303030;
+  border-radius: 3px;
+  padding: 0.5rem 0.5rem;
+  color: white;
+}
+
+.form-field:hover {
+  box-shadow: 0 0 16px 0 rgba(252, 195, 90, 0.1);
+}
+
+.form-lbl {
+  font-size: 0.8rem;
+  padding-top: 0.5rem;
+}
+
+.form-link-s {
+  color: grey;
+  text-decoration: underline;
+  text-align: center;
+  font-size: 0.9rem;
+  cursor: pointer;
+}
+
+.form-link-s:hover {
+  color: white;
+}
+
+.error-msg {
+  color: #F96363;
+  padding-top: 1rem;
+}
+
+.particles-bg-canvas-self {
+  position: absolute;
+  height: 100%;
+  z-index : -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.error-msg {
+  text-align: center;
+  font-size: 0.8rem;
+  margin: 0;
+  height: fit-content;
+}
+
+.error-msg-wrapper {
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+}
+
