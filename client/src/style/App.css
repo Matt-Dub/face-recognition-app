@@ -112,6 +112,24 @@
 
 .logo-container {
   margin-bottom: 3rem;
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-container h1 {
+  color: white;
+  font-size: 3rem;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.logo-container p {
+  color: #E5E5E5;
+  font-size: 1.6rem;
+  margin: 0;
 }
 
 .tilt-logo {

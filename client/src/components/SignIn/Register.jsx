@@ -32,7 +32,7 @@ function Register ( { onRouteChange, loadUser } ) {
                 })
                 .then(response => response.json())
                 .then(user => {
-                    if(user) {
+                    if(user.id) {
                         loadUser(user);
                         onRouteChange('home');
                     } else {
@@ -47,7 +47,7 @@ function Register ( { onRouteChange, loadUser } ) {
     }
 
     return (
-        <div className="br3 ba light-gray b--black-20 mv4 w-25-l mw6 center shadow-5 pa5 flex justify-center flex-column bg-black-10">
+        <div className="br3 ba light-gray b--black-20 mv4 w-25-l mw6 center shadow-5 pa5 flex justify-center flex-column bg-black-60">
             <div className='flex justify-center flex-column'>
                 <fieldset id="register" className="ba b--transparent ph0 mh0 ">
                 <legend className="f2 fw6 ph0 mh0 w-100 tc">Register</legend>

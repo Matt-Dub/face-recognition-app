@@ -15,6 +15,15 @@ function SignIn ({ onRouteChange, loadUser }) {
     }
 
     const onSubmitSignIn = () => {
+
+        if(!email) {
+            return setDisplayError('Email address is missing...');
+        }
+
+        if(!password) {
+            return setDisplayError('Please enter your password...');
+        }
+
         fetch('http://localhost:3000/signing', {
             method: 'post',
             headers: {'Content-Type': 'application/json'},
@@ -29,14 +38,14 @@ function SignIn ({ onRouteChange, loadUser }) {
                 loadUser(user);
                 onRouteChange('home');
             } else {
-                setDisplayError('Wrong Credentials');
+                setDisplayError('Wrong Credentials...');
             }
         })
         
     }
 
     return (
-        <div className="br3 ba light-gray b--black-20 mv4 w-25-l mw6 center shadow-5 pa5 flex justify-center flex-column bg-black-10">
+        <div className="br3 ba light-gray b--black-20 mv4 w-25-l mw6 center shadow-5 pa5 flex justify-center flex-column bg-black-60">
             <div className='flex justify-center flex-column'>
                 <fieldset id="sign_up" className="ba b--transparent ph0 mh0 ">
                 <legend className="f2 fw6 ph0 mh0 w-100 tc">Sign In</legend>
