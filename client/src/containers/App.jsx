@@ -135,8 +135,8 @@ function App() {
         })
 
         const dbResponse = await imageServerCall.json();
-        console.log('imageResponse: ', dbResponse[0])
-        setUser(dbResponse[0]);
+        console.log('imageResponse: ', dbResponse)
+        return setUser(dbResponse);
 
       } catch (err) {
         console.log('error image: ', err)
